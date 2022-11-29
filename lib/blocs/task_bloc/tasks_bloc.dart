@@ -131,7 +131,7 @@ class TasksBloc extends HydratedBloc<TasksEvent, TasksState> {
         pendingTasks: List.from(state.pendingTasks)
           ..remove(event.oldTask)
           ..insert(0, event.newTask),
-        completedTasks: state.completedTasks..remove(event.oldTask),
+        completedTasks: List.from(state.completedTasks)..remove(event.oldTask),
         favoriteTasks: favoriteTasks,
         removedTasks: state.removedTasks,
       ),
